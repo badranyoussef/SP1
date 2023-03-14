@@ -39,16 +39,17 @@ void setup() {
 void draw() {
   background(255);
 
+  //looping a background
 int bX = 0;
 int bW = width/70;
       noStroke();
-    fill(200);
+    fill(230);
     for (int i = 0; i < width; i++) {
       rect(bX, height/2, bW, height);
       bX+=bW*2;
     }
 
-  backGround.drawBackground();
+      //backGround.drawBackground(); <-- i tried to create a method to draw the background but it did not work. Thats why i made a loop above to draw the background
   ball.drawBall();
   paddle1.drawPaddle(100);
   paddle2.drawPaddle(100);

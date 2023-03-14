@@ -1,15 +1,17 @@
 class Ball {
 
+  //declaring attributes
   float posX, posY, ballW, ballY;
   float Xspeed = 5;
   float Yspeed = 0;
   float Ydirection;
   float speedUpdate = -1.1;
   int ballColor = color((int)random(255), (int)random(255), (int)random(255));
+
   //float distanceP1 = dist(posX, posY, paddle2.paddleX, paddle2.paddleY); I could not solve the error "NullPointerException" the idea was to create a variable for the distance between the ball and the center of the paddle when it hits
   //float distanceP2 = dist(posX, posY, paddle2.paddleX, paddle2.paddleY);
 
-
+  //designing the constructor
   Ball(int posX, int posY, int ballW, int ballY) {
     this.posX = posX;
     this.posY = posY;
@@ -45,7 +47,7 @@ class Ball {
     }
 
     //change ball Y direction depending on where the ball hits the paddle
-    if (posX > paddle2.paddleX-paddle2.paddleW && posY < paddle2.paddleY + paddle2.paddleH/2 && posY >= paddle2.paddleY) { //hvis ikke den Y postionerne er = hinanden ryger bolden igennem paddle
+    if (posX > paddle2.paddleX-paddle2.paddleW && posY < paddle2.paddleY + paddle2.paddleH/2 && posY >= paddle2.paddleY) {
       Xspeed *= speedUpdate;
       Yspeed = dist(posX, posY, paddle2.paddleX, paddle2.paddleY)/10;
     } else if (posX > paddle2.paddleX-paddle2.paddleW && posY > paddle2.paddleY - paddle2.paddleH/2 && posY < paddle2.paddleY) {
@@ -61,9 +63,8 @@ class Ball {
   }
 
 
-
+  //A method to view the score
   void score() {
-
     if (posX < 0) {
       player2Score++;
     }
